@@ -1,9 +1,11 @@
 {
   "name": "amazona",
+  "proxy": "http://127.0.0.1:5000",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1"
   },
   "devDependencies": {
