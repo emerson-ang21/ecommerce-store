@@ -1,6 +1,9 @@
 import React from 'react';
 import data from './data';
 import './App.css';
+import {BrowserRouter, Route, Link } from 'react-router-dom';
+import HomeScreen from './Screens/HomeScreen';
+import ProductScreen from './Screens/ProductScreen';
 
 function App() {
 
@@ -11,13 +14,14 @@ function App() {
     document.querySelector(".sidebar").classList.remove("open")
   }
   return (
+  <BrowserRouter>
     <div className="grid-container">
       <header className="header">
         <div className="brand">
           <button onClick={openMenu}>
             &#9776;
             </button>
-          <a href="/" >amazona</a>
+          <Link to="/">amazona</Link>
         </div>
         <div className="header-links">
           <a href="cart.html">Cart</a>
@@ -39,32 +43,17 @@ function App() {
         </ul>
       </aside>
       <main className="main">
-        <div className="products">
-          {
-            data.products.map(product =>
-              <li>
-                <div className="product">
-                  <a href={'/product/' + product._id}>
-                    <img className="product-image" src={product.image} alt="product" />
-
-                  </a>
-                  <div className="product-name">
-                    <a href={'/product/' + product._id}>{product.name}</a>
-                  </div>
-                  <div className="product-brand">{product.brand}</div>
-                  <div className="product-price">${product.price}</div>
-                  <div className="product-rating">{product.rating} Stars ({product.numReiews} Reviews)</div>
-                </div>
-              </li>)
-          }
-
+        <div className="content">
+          <Route path="/product/:id" component={ProductScreen} />
+          <Route path="/" exact={true} component={HomeScreen} />
+          
         </div>
-
       </main>
       <footer className="footer">
         All right reserved.
     </footer>
     </div>
+  </BrowserRouter>
   );
 }
 
