@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import './App.css';
 import HomeScreen from './Screens/HomeScreen';
@@ -11,6 +11,7 @@ import ProductsScreen from './Screens/ProductsScreen';
 import ShippingScreen from './Screens/ShippingScreen';
 import PaymentScreen from './Screens/PaymentScreen';
 import PlaceOrderScreen from './Screens/PlaceOrderScreen';
+import OrderScreen from './Screens/OrderScreen';
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
             <Link to="/" >Farm2Table</Link>
           </div>
           <div className="header-links">
-          <Link to="/cart">Cart</Link>
+            <a href="/cart">Cart</a>
             {
               userInfo ? <Link to="/profile">{userInfo.name}</Link> :
                 <Link to="/signin">Sign In</Link>
@@ -57,15 +58,16 @@ function App() {
         </aside>
         <main className="main">
           <div className="content">
+            <Route path="/order/:id" component={OrderScreen} />
             <Route path="/products" component={ProductsScreen} />
             <Route path="/shipping" component={ShippingScreen} />
+            <Route path="/payment" component={PaymentScreen} />
+            <Route path="/placeorder" component={PlaceOrderScreen} />
             <Route path="/signin" component={SigninScreen} />
             <Route path="/register" component={RegisterScreen} />
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
-            <Route path="/payment" component={PaymentScreen} />
-            <Route path="/placeorder" component={PlaceOrderScreen} />
 
 
           </div>
