@@ -1,5 +1,4 @@
-  
-import express from 'express';
+  import express from 'express';
 import data from './data';
 import dotenv from 'dotenv';
 import config from './config';
@@ -24,6 +23,9 @@ app.use(bodyParser.json());
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
+app.get("/api/config/paypal", (req,res) => {
+  res.send(config.PAYPAL_CLIENT_ID);
+})
 
 // app.get("/api/products/:id", (req, res) => {
 //   const productId = req.params.id;

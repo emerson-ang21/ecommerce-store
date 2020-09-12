@@ -292,10 +292,13 @@ input{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
 }
+
 .content-margined{
   margin: 1rem;
 }
+
 .table{
   width: 100%;
 }
@@ -308,11 +311,12 @@ tbody>tr:nth-child(odd){
 
 /* Checkout Steps */
 
-.checkout-steps {
+.checkout-steps{
   display: flex;
   justify-content: space-between;
   width: 40rem;
   margin: 1rem auto;
+ 
 }
 .checkout-steps > div{
   border-top: .3rem #c0c0c0 solid;
@@ -334,7 +338,7 @@ tbody>tr:nth-child(odd){
   justify-content: space-between;
 }
 .placeorder-info{
-  flex: 3 1 60rem;
+  flex: 3 1 60rem; 
 }
 .placeorder-action{
   flex: 1 1 20rem;
@@ -363,7 +367,10 @@ tbody>tr:nth-child(odd){
   margin-bottom: 1rem;
 }
 .placeorder-action > ul > li:last-child{
-  font-size: 2rem;
-  font-weight: bold;
-  color: #c04000;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #c04000;
+}
+.placeorder-actions-payment > div {
+  width: 100%;
 }
