@@ -37,7 +37,7 @@ function App() {
             <Link to="/" >Farm2Table</Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
+            <a href="/cart">Cart</a>
             {
               userInfo ? <Link to="/profile">{userInfo.name}</Link> :
                 <Link to="/signin">Sign In</Link>
@@ -60,12 +60,14 @@ function App() {
           <button className="sidebar-close-button" onClick={closeMenu}>x</button>
           <ul className="categories">	
             <li>	
-              <Link to="/category/Pants">Pants</Link>	
+              <Link to="/category/Fruits">Fruits</Link>	
             </li>	
             <li>	
-              <Link to="/category/Shirts">Shirts</Link>	
+              <Link to="/category/Dairy">Dairy</Link>	
             </li>
-
+            <li>	
+              <Link to="/category/Vegetables">Vegetables</Link>	
+            </li>
           </ul>
         </aside>
         <main className="main">
