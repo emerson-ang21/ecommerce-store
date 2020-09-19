@@ -1,6 +1,8 @@
 import express from 'express';
 import User from '../models/userModel';
 import { getToken, isAuth } from '../util';
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 const router = express.Router();
 
