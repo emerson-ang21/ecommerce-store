@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/emerson-ang21/ecommerce-store#readme",
   "engines": {
-    "node": "12.18.3",
+    "node": "12.x",
     "npm": "6.9.0"
   }
 }
