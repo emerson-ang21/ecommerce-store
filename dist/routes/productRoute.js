@@ -32,6 +32,7 @@ router.get("/", /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            console.log(process.env.PORT);
             category = req.query.category ? {
               category: req.query.category
             } : {};
@@ -48,14 +49,14 @@ router.get("/", /*#__PURE__*/function () {
             } : {
               _id: -1
             };
-            _context.next = 5;
+            _context.next = 6;
             return _productModel["default"].find(_objectSpread(_objectSpread({}, category), searchKeyword)).sort(sortOrder);
 
-          case 5:
+          case 6:
             products = _context.sent;
             res.send(products);
 
-          case 7:
+          case 8:
           case "end":
             return _context.stop();
         }

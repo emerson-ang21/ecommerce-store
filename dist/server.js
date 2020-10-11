@@ -18,6 +18,7 @@ var _orderRoute = _interopRequireDefault(require("./routes/orderRoute"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+// import cors from cors;
 var mongodbUrl = _config["default"].MONGODB_URL;
 
 _mongoose["default"].connect(mongodbUrl, {
@@ -28,7 +29,11 @@ _mongoose["default"].connect(mongodbUrl, {
   return console.log(error.reason);
 });
 
-var app = (0, _express["default"])();
+var corsOptions = {
+  origin: 'https://yourdomain.com'
+};
+var app = (0, _express["default"])(); // app.use(cors());
+
 app.use(_bodyParser["default"].json());
 app.use("/api/users", _userRoute["default"]);
 app.use("/api/products", _productRoute["default"]);
@@ -48,5 +53,5 @@ app.get("/api/config/paypal", function (req, res) {
 // });
 
 app.listen(process.env.PORT || 5000, function () {
-  console.log("\"Server started at http://localhost:".concat(process.env.PORT || 5000, "\""));
+  console.log("Server started at http://localhost:".concat(process.env.PORT || 5000));
 });
