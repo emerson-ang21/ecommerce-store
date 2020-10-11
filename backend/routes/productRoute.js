@@ -3,9 +3,9 @@ import Product from '../models/productModel';
 import { isAuth, isAdmin } from '../util';
 
 const router = express.Router();
-console.log(process.env.PORT);
 
 router.get("/", async (req, res) => {
+  console.log(process.env.PORT);
   const category = req.query.category ? { category: req.query.category } : {};
   const searchKeyword = req.query.searchKeyword ? {
     name: {
