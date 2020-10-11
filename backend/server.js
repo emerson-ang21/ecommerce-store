@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import userRoute from './routes/userRoute';
 import productRoute from './routes/productRoute';
 import orderRoute from './routes/orderRoute';
+import cors from cors;
 
 const mongodbUrl = config.MONGODB_URL;
 mongoose.connect(mongodbUrl, {
@@ -15,14 +16,12 @@ mongoose.connect(mongodbUrl, {
 }).catch(error => console.log(error.reason));
 
 
+const corsOptions = {
+  origin: 'https://yourdomain.com',
+}
+
 const app = express();
-app.all('*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://phfarms.herokuapp.com');
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  next();
-});
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
