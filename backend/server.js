@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import userRoute from './routes/userRoute';
 import productRoute from './routes/productRoute';
 import orderRoute from './routes/orderRoute';
-import cors from cors;
+// import cors from cors;
 
 const mongodbUrl = config.MONGODB_URL;
 mongoose.connect(mongodbUrl, {
@@ -21,7 +21,7 @@ const corsOptions = {
 }
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
